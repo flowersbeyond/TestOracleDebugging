@@ -1,0 +1,63 @@
+1
+105c105
+<     for (i=1; f_ele && (i<n); i++)
+---
+>     for (i=1; f_list->first && (i<n); i++) /* logic error */
+
+2
+230,231c230,231
+< 	count = block_queue->mem_count;
+< 	n = (int) (count*ratio + 1);
+---
+> 	count = block_queue->mem_count + 1;
+> 	n = (int) (count*ratio); /* change in where +1 was added - logic change */
+
+3
+209c209
+< 	n = (int) (count*ratio + 1);
+---
+> 	n = (int) (count*ratio + 1.1); /* constant mutation */
+
+4
+207,208c207
+<     if (count > 0)
+<     {
+---
+>     if (count > 1) /* off by one */ {
+
+5
+211c211
+< 	if (proc) {
+---
+> 	/* if (proc) { */
+216c216
+< 	}
+---
+>     /* }  missing conditional check */
+
+6
+105c105
+<     for (i=1; f_ele && (i<n); i++)
+---
+>     for (i=1; f_list && (i<n); i++) /* operand mutation */
+
+7
+209a210
+> 	if(ratio == 1.0) n--; /* Correct original */
+231a233
+> 	if(ratio == 1.0) n--; /* Correct original */
+
+8
+213,214c213,214
+< 	    /* append to appropriate prio queue */
+< 	    proc->priority = prio;
+---
+> 	    /* append to appropriate prio queue 
+> 	    proc->priority = prio; */
+
+9
+314c314
+<     if (argc < (MAXPRIO+1))
+---
+>     if (argc < (MAXPRIO))
+

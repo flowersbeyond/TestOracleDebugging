@@ -1,0 +1,140 @@
+1
+343c343
+< 				goto ret1;
+---
+> /* 				goto ret1; missing code */
+
+2
+85c85
+< 				if ( scanf( " %ld", &x(i,j) ) != 1 )
+---
+> 				if ( scanf( " %ld", &x(i,j) ) == 0 )
+
+3
+75c75
+< 		if ( r * c > MAXTBL )
+---
+> 		if ( r * c > MAXTBL-10)
+
+4
+233c233
+< 			if ( Abs( gold ) < EPS * Abs( g ) )
+---
+> 			if ( Abs( gold ) < Abs( g ) )
+
+5
+105c105
+< 			totinfo += info;
+---
+> 			totinfo = info; /* removed + before = */
+
+6
+18c18
+< #define	MAXLINE	256
+---
+> #define	MAXLINE	56 
+
+7
+378c378
+< 		if ( pi > 0.0 )
+---
+> 		if ( pi >= 0.0 ) /* added an = after > */
+
+8
+200,201c200,201
+< 		if ( Abs( del ) < Abs( sum ) * EPS )
+< 			return sum * exp( -x + a * log( x ) - LGamma( a ) );
+---
+> 		if ( Abs(del) < Abs(sum) * EPS )
+> 			return sum * exp(  x + a * log( x ) - LGamma( a ) );
+
+9
+106c106
+< 			totdf += infodf;
+---
+> 			totdf = infodf;
+
+10
+301c301
+< 	double		N;		/* (double)n */
+---
+> 	float		N;		/* (double)n */
+
+11
+198c198
+< 		sum += del *= x / ++ap;
+---
+> 		sum = del *= x / ++ap;
+
+12
+177c177
+< 	return -tmp + log( 2.50662827465 * ser );
+---
+> 	return -tmp + log( 2.50663 * ser );
+
+13
+394c394
+< 		if ( pj > 0.0 )
+---
+> 		if ( pj >= 0.0 )
+
+14
+75c75
+< 		if ( r * c > MAXTBL )
+---
+> 		if ( r * c >= MAXTBL )
+
+15
+200c200
+< 		if ( Abs( del ) < Abs( sum ) * EPS )
+---
+> 		if ( Abs( del ) < Abs( sum ) * (EPS-.000001) )
+
+16
+99c99
+< 		if ( info >= 0.0 )
+---
+> 		if ( info >= 0.1 )
+
+17
+223c223
+< 		anf = an * fac;
+---
+> 		anf = an - fac;
+
+18
+308c308
+< 	if ( rdf <= 0 || cdf <= 0 )
+---
+> 	if ( rdf == 0 || cdf == 0 )
+
+19
+18c18
+< #define	MAXLINE	256
+---
+> #define	MAXLINE	26
+
+20
+308c308
+< 	if ( rdf <= 0 || cdf <= 0 )
+---
+> 	if ( rdf <= 0  )
+
+21
+22c22
+< #define	MAXTBL	1000
+---
+> #define	MAXTBL	5000  
+
+22
+352c352
+< 	if ( N <= 0.0 )
+---
+> 	if ( N <= 1.0 )
+
+23
+215c215
+< 	for ( n = 1; n <= ITMAX; ++n )
+---
+> 	for ( n = 0; n <= ITMAX; ++n )
+
