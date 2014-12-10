@@ -5,8 +5,9 @@ Detailed description of this folder is as follows:
 
 Fault_localization
 `-input
-  `-1,2,...,7: coverage matrix for all Siemens Test Suite program variants.
-  `-8        : coverage matrix for grep variants.
+  `-1,2,...,8: coverage matrix for all Siemens Test Suite program variants (1-7) and grep variants (8).
+    `-difference.txt: difference between this version of variant and its corresponding correct version
+    `-flanswer      : the fault localization answer of this variat
   `-mapping  : mapping relation from numbers to different Siemens programs.
 
 
